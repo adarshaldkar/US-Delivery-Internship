@@ -17,7 +17,7 @@ The **Zycus AI Support Suite** is an enterprise-grade, data-driven platform buil
 1. **Task 1: Intelligent Ticket Triage Agent (`src/triage.py`)** — Ingests unstructured customer support tickets, executes hybrid TF-IDF + exact regex error-code retrieval across Markdown knowledge base documents, classifies product, category (8 allowed enums), and urgency (P1–P4) with technical reasoning, recommends responder teams, and drafts professional first responses grounded in verified KB excerpts.
 2. **Task 2: TAM Account Health Summariser (`src/account_health.py`)** — Aggregates enterprise account metadata with dynamic 90-day ticket history (anchored dynamically to $\max(\text{created\_at})$), detects churn and escalation signals, programmatically verifies verbatim evidence quotes, and synthesizes a deterministic 3-section QBR brief.
 3. **Task 3: Independent Evaluation Harness (`src/evaluation.py`)** — Automated evaluation engine executing representative test cases (including multi-topic tickets, edge cases, and adversarial prompt injections), grading continuous quality scores ($0.0 \to 1.0$) across schema validity, classification accuracy, urgency calibration, and citation grounding, and auto-exporting `eval_report.json` and `eval_report.md`.
-4. **Task 4: Production Design Note (`DESIGN.md`)** — ~620-word engineering design note addressing Failure Modes, Latency vs Quality, PII Masking, and 10× Volume Scaling.
+4. **Task 4: Production Design Note ([`DESIGN.md`](./DESIGN.md))** — ~620-word engineering design note addressing Failure Modes, Latency vs Quality, PII Masking, and 10× Volume Scaling.
 
 ---
 
@@ -79,7 +79,7 @@ In offline deterministic mode, rather than using static keyword maps or hardcode
 
 ---
 
-## 🚀 Quick Start & Installation
+## 🚀 Setup & Installation Instructions
 
 ### 1. Prerequisites
 - Python 3.11+
@@ -88,8 +88,8 @@ In offline deterministic mode, rather than using static keyword maps or hardcode
 ### 2. Setup Environment
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/zycus-ai-support-suite.git
-cd zycus-ai-support-suite
+git clone https://github.com/adarshaldkar/US-Delivery-Internship.git
+cd US-Delivery-Internship
 
 # (Optional) Create virtual environment
 python -m venv .venv
@@ -100,55 +100,183 @@ python -m venv .venv
 # macOS / Linux:
 source .venv/bin/activate
 
-# Install dependencies
+# Install dependencies (Clean install)
 pip install -r requirements.txt
 ```
 
 ---
 
-## 💻 CLI Usage Guide (`python src/main.py`)
+## 💻 Sample Runs for Each Task (`python src/main.py`)
 
 The platform includes a single unified CLI entry point supporting both direct execution (`python src/main.py`) and module execution (`python -m src.main`):
 
-### 1. Task 1: Triage a Support Ticket
+### 🎫 Sample Run: Task 1 (Intelligent Ticket Triage)
+
+**Command:**
 ```bash
 python src/main.py triage --subject "Pipeline Timeout" --body "DataBridge Pro connector timeout with ERR_CONNECTION_TIMEOUT after 30s in production"
 ```
 
-### 2. Task 2: Generate TAM Account Health Brief
+**Output:**
+```json
+{
+  "product": "DataBridge Pro",
+  "product_area": "Connectors",
+  "category": "Data Loss",
+  "urgency": "P4",
+  "urgency_reasoning": "Classification is derived from weighted similarity to the supplied labeled historical-ticket corpus.",
+  "is_known_issue": true,
+  "matched_kb_document": "troubleshooting/performance-and-integrations.md",
+  "matched_kb_section": "Error Reference",
+  "kb_resolution_steps": "## Error Reference\n\n| Error | Likely Cause | Resolution |\n|-------|-------------|------------|\n| `ERR_CONNECTION_TIMEOUT after 30s` | Network or source unreachable | Check firewall, VPN, and source availability |\n| `PIPELINE_STALLED: no heartbeat for 15 minutes` | Pipeline worker crashed or source blocked | Restart pipeline; check source credentials |\n| `RATE_LIMIT_EXCEEDED: retry after 60s` | API quota hit on source or destination | Reduce batch size or add retry backoff |",
+  "recommended_team": "Technical Support (offline recommendation)",
+  "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a data loss affecting DataBridge Pro. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
+  "secondary_topics": [
+    "How-To",
+    "Bug",
+    "Onboarding"
+  ],
+  "confidence": 0.419,
+  "kb_retrieval_score": 0.5
+}
+```
+
+---
+
+### 📊 Sample Run: Task 2 (TAM Account Health Summariser)
+
+**Command:**
 ```bash
 python src/main.py account-health --account-id ACC-3336
 ```
 
-### 3. Task 3: Run the Evaluation Harness
+**Output:**
+```json
+{
+  "account_id": "ACC-3336",
+  "company": "Omni Consumer Products",
+  "tam_name": "Rohan Mehta",
+  "plan_tier": "Business",
+  "arr_usd": 500000,
+  "health_status": "At Risk",
+  "usage_trend": "Inactive",
+  "executive_summary": "Omni Consumer Products is on the Business plan with $500,000 ARR. The account health is At Risk and the usage trend is inactive. The selected 90-day window contains 10 support tickets, including 0 P1 and 2 P2 incidents. The usage trajectory supports a proactive adoption review.",
+  "open_risks_and_flags": [
+    {
+      "risk_title": "Account escalation note",
+      "severity": "Medium",
+      "signal_source": "escalation_note",
+      "quote_or_evidence": "3 consecutive P1 tickets in the last 30 days",
+      "ticket_id": null
+    },
+    {
+      "risk_title": "Account escalation note",
+      "severity": "Medium",
+      "signal_source": "escalation_note",
+      "quote_or_evidence": "Decision maker considering competing vendor evaluation",
+      "ticket_id": null
+    }
+  ],
+  "recommended_talking_points": [
+    "Review renewal timing against the account's technical priorities (89 days from the dataset reference date).",
+    "Discuss the drivers behind the inactive usage trend and agree on measurable adoption-recovery actions.",
+    "Review current seat utilization of 91.8% and identify capacity or adoption opportunities.",
+    "Close the loop on the stakeholder concerns in the account escalation notes and agree on owners for next actions."
+  ],
+  "metrics_snapshot": {
+    "reference_date": "2026-05-22T00:23:32.203871+00:00",
+    "ticket_history_days": 90,
+    "total_tickets_90d": 10,
+    "p1_tickets_90d": 0,
+    "p2_tickets_90d": 2,
+    "seat_utilization_pct": 91.8,
+    "days_until_renewal": 89,
+    "arr_usd": 500000,
+    "seats_licensed": 1845,
+    "seats_active": 1693
+  },
+  "data_quality_warnings": [
+    "ACCOUNT_COMPANY_MISMATCH:TKT-10293",
+    "SYNTHETIC_ID_DISCREPANCY:TKT-10073"
+  ]
+}
+```
+
+---
+
+### 🧪 Sample Run: Task 3 (Evaluation Harness)
+
+**Command:**
 ```bash
 python src/main.py eval
 ```
 
-### 4. Bonus: Interactive Streamlit Web UI (+5 Marks)
+**Output:**
+```json
+{
+  "timestamp": "2026-08-27T14:33:57.251910+00:00",
+  "total_tests": 12,
+  "passed_tests": 12,
+  "failed_tests": 0,
+  "overall_pass_rate": 1.0,
+  "average_quality_score": 0.98,
+  "task_1_pass_rate": 1.0,
+  "task_2_pass_rate": 1.0,
+  "results": [
+    {
+      "test_id": "T1-1",
+      "task": "task_1_triage",
+      "name": "Representative Bug ticket",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "latency_ms": 2.14
+    }
+  ]
+}
+```
+*Reports automatically written to `eval/eval_report.json` and `eval/eval_report.md`.*
+
+---
+
+### 🌐 Sample Run: Bonus Interfaces
+
+**Launch Streamlit Web UI (+5 Marks):**
 ```bash
 python src/main.py ui
 # OR
 streamlit run app.py
 ```
 
-### 5. Bonus: FastAPI REST API Server
+**Launch FastAPI REST Server:**
 ```bash
 python src/main.py api
-# Access interactive Swagger UI at: http://127.0.0.1:8000/docs
+# Swagger documentation available at: http://127.0.0.1:8000/docs
 ```
 
 ---
 
-## 🧪 Testing & Automated Verification
+## 📐 Task 4: Production Design Note
 
-Run the full pytest test suite across all 33 unit and integration tests:
+The complete ~620-word Production Design Note is documented in [**`DESIGN.md`**](./DESIGN.md).
+
+### 🏛️ Executive Summary of Architectural Decisions:
+1. **Failure Modes & Cascading Risk:** Mitigates silent retrieval misses and hallucinated workarounds via strict $<0.25$ confidence fallbacks, catastrophic P1 overrides, and drift telemetry.
+2. **Latency vs. Quality Trade-offs:** Two-tier pipeline balancing synchronous fast-path edge routing ($<25\text{ms}$) with asynchronous deep LLM reasoning ($1–2\text{s}$).
+3. **Sensitive Customer Data & External API Security:** In-flight targeted regex scrubbing for emails, bearer JWTs, credit card PANs, and phone numbers while strictly preserving technical error tokens; Zero Data Retention (ZDR) contracts.
+4. **Scaling to 10× Volume (5,000+ tickets/day):** Decoupled Kafka message queues, horizontal Celery workers, Redis semantic response cache, distributed Qdrant vector DB, and PostgreSQL read-replicas.
+
+Read the full design note here: [**`DESIGN.md`**](./DESIGN.md)
+
+---
+
+## 🧪 Automated Pytest Suite (33 Tests)
 
 ```bash
 pytest tests/ --verbose
 ```
 
-### Verified Test Breakdown:
+### Verified Test Suite Breakdown:
 * `tests/test_foundation.py` (11 tests) — Dynamic reference dates, dataset loading, ISO datetime parsing, catalog discovery.
 * `tests/test_phase2.py` (9 tests) — Verbatim quote validation, grounded KB citations, JSON extraction, prompt injection defense.
 * `tests/test_integration.py` (3 tests) — Deterministic offline triage, account health 3-section structure.
@@ -193,12 +321,3 @@ pytest tests/ --verbose
 ├── README.md                 # Complete system documentation
 └── requirements.txt          # Frozen, minimal dependency specifications
 ```
-
----
-
-## 🛡️ Security & PII Redaction Strategy
-
-* **Targeted Regex Scrubbing:** In-flight masking of emails (`[REDACTED_EMAIL]`), JWT bearer tokens (`[REDACTED_TOKEN]`), credit card PANs (`[REDACTED_CARD]`), and phone numbers (`[REDACTED_PHONE]`).
-* **Technical Error Token Preservation:** Strictly preserves critical error tokens (e.g. `ERR_CONNECTION_TIMEOUT`, `SAML_RESPONSE_INVALID`).
-* **Zero Committed Secrets:** Repository contains zero private keys; uses clean `.env.example`.
-* **Zero Data Retention (ZDR):** LLM integration is configured for enterprise Zero Data Retention.
