@@ -1,0 +1,432 @@
+{
+  "timestamp": "2026-08-27T14:34:07.436328+00:00",
+  "total_tests": 11,
+  "passed_tests": 10,
+  "failed_tests": 1,
+  "overall_pass_rate": 0.9090909090909091,
+  "average_quality_score": 0.9848181818181818,
+  "task_1_pass_rate": 0.8333333333333334,
+  "task_2_pass_rate": 1.0,
+  "results": [
+    {
+      "test_id": "T1-1",
+      "task": "task_1_triage",
+      "name": "Representative Billing ticket",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "product": "DataBridge Pro",
+        "product_area": "Scheduling",
+        "category": "Billing",
+        "urgency": "P2",
+        "urgency_reasoning": "Classification is derived from weighted similarity to the supplied labeled historical-ticket corpus.",
+        "is_known_issue": false,
+        "matched_kb_document": null,
+        "matched_kb_section": null,
+        "kb_resolution_steps": null,
+        "recommended_team": "Technical Support (offline recommendation)",
+        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a billing affecting DataBridge Pro. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
+        "secondary_topics": [
+          "Data Loss",
+          "Performance",
+          "How-To"
+        ],
+        "confidence": 0.415,
+        "kb_retrieval_score": 0.221
+      },
+      "latency_ms": 6.372
+    },
+    {
+      "test_id": "T1-2",
+      "task": "task_1_triage",
+      "name": "Representative Integration ticket",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "product": "AnalyticsHub",
+        "product_area": "Data Sources",
+        "category": "Integration",
+        "urgency": "P3",
+        "urgency_reasoning": "Classification is derived from weighted similarity to the supplied labeled historical-ticket corpus.",
+        "is_known_issue": false,
+        "matched_kb_document": null,
+        "matched_kb_section": null,
+        "kb_resolution_steps": null,
+        "recommended_team": "Technical Support (offline recommendation)",
+        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a integration affecting AnalyticsHub. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
+        "secondary_topics": [
+          "Performance",
+          "How-To"
+        ],
+        "confidence": 0.442,
+        "kb_retrieval_score": 0.11
+      },
+      "latency_ms": 3.399
+    },
+    {
+      "test_id": "T1-3",
+      "task": "task_1_triage",
+      "name": "Representative How-To ticket",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "product": "SecureVault",
+        "product_area": "SSO",
+        "category": "How-To",
+        "urgency": "P3",
+        "urgency_reasoning": "Classification is derived from weighted similarity to the supplied labeled historical-ticket corpus.",
+        "is_known_issue": true,
+        "matched_kb_document": "troubleshooting/authentication-sso.md",
+        "matched_kb_section": "Troubleshooting: Authentication & SSO",
+        "kb_resolution_steps": "# Troubleshooting: Authentication & SSO\n\nThis guide covers the most common authentication and single sign-on issues across all products.",
+        "recommended_team": "Technical Support (offline recommendation)",
+        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a how-to affecting SecureVault. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
+        "secondary_topics": [
+          "Onboarding",
+          "Feature Request",
+          "Data Loss"
+        ],
+        "confidence": 0.527,
+        "kb_retrieval_score": 0.478
+      },
+      "latency_ms": 2.961
+    },
+    {
+      "test_id": "T1-4",
+      "task": "task_1_triage",
+      "name": "Representative Data Loss ticket",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "product": "AnalyticsHub",
+        "product_area": "Alerts",
+        "category": "Data Loss",
+        "urgency": "P2",
+        "urgency_reasoning": "Classification is derived from weighted similarity to the supplied labeled historical-ticket corpus.",
+        "is_known_issue": true,
+        "matched_kb_document": "troubleshooting/authentication-sso.md",
+        "matched_kb_section": "New Users Cannot Authenticate via SSO",
+        "kb_resolution_steps": "## New Users Cannot Authenticate via SSO\n\n**Symptom:** Existing users log in fine; new joiners get an error.\n\n**Most common cause:** The new user's IDP group has not been mapped to a product role.\n\n**Resolution:**\n1. Log in to the product as an admin.\n2. Navigate to Settings → SSO → Group Mapping.\n3. Verify the user's primary IDP group appears in the list with a role assigned.\n4. If the group is missing, add it with the appropriate role.\n5. Ask the user to retry — no reprovisioning needed after mapping is added.",
+        "recommended_team": "Technical Support (offline recommendation)",
+        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a data loss affecting AnalyticsHub. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
+        "secondary_topics": [
+          "Bug",
+          "Feature Request",
+          "Onboarding"
+        ],
+        "confidence": 0.6,
+        "kb_retrieval_score": 0.532
+      },
+      "latency_ms": 3.023
+    },
+    {
+      "test_id": "T1-5",
+      "task": "task_1_triage",
+      "name": "Representative Bug ticket",
+      "is_adversarial": false,
+      "passed": false,
+      "quality_score": 0.833,
+      "reasons": [
+        "category: expected 'Bug', got 'Integration'"
+      ],
+      "actual_output": {
+        "product": "SecureVault",
+        "product_area": "Audit Logs",
+        "category": "Integration",
+        "urgency": "P3",
+        "urgency_reasoning": "Classification is derived from weighted similarity to the supplied labeled historical-ticket corpus.",
+        "is_known_issue": true,
+        "matched_kb_document": "troubleshooting/performance-and-integrations.md",
+        "matched_kb_section": "Common Integration Errors",
+        "kb_resolution_steps": "## Common Integration Errors\n\n| Error | Integration | Cause | Fix |\n|-------|------------|-------|-----|\n| `403 Forbidden` | Salesforce | OAuth token lacks `api` scope | Regenerate token with correct scopes |\n| `404 Not Found` on valid endpoint | Any REST | API version mismatch | Confirm API version in connector config |\n| Webhook not received | All | Endpoint not reachable from cloud | Whitelist platform IP ranges |\n| `CHECKSUM_MISMATCH` | DataBridge Pro | Data corruption or wrong key | Verify encryption key; contact support |\n| `INVALID_CONFIGURATION` | WorkflowEngine | Missing required field in action | Review action field mapping |",
+        "recommended_team": "Technical Support (offline recommendation)",
+        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a integration affecting SecureVault. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
+        "secondary_topics": [
+          "Data Loss",
+          "Onboarding"
+        ],
+        "confidence": 0.453,
+        "kb_retrieval_score": 0.563
+      },
+      "latency_ms": 4.53
+    },
+    {
+      "test_id": "T1-ADV-EMPTY",
+      "task": "task_1_triage",
+      "name": "Empty ticket",
+      "is_adversarial": true,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "error": "INVALID_TICKET"
+      },
+      "latency_ms": 0.056
+    },
+    {
+      "test_id": "T2-1",
+      "task": "task_2_account_health",
+      "name": "Representative At Risk account",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "account_id": "ACC-3336",
+        "company": "Omni Consumer Products",
+        "tam_name": "Rohan Mehta",
+        "plan_tier": "Business",
+        "arr_usd": 500000,
+        "health_status": "At Risk",
+        "usage_trend": "Inactive",
+        "executive_summary": "Omni Consumer Products is on the Business plan with $500,000 ARR. The account health is At Risk and the usage trend is inactive. The selected 90-day window contains 10 support tickets, including 0 P1 and 2 P2 incidents. The usage trajectory supports a proactive adoption review.",
+        "open_risks_and_flags": [
+          {
+            "risk_title": "Account escalation note",
+            "severity": "Medium",
+            "signal_source": "escalation_note",
+            "quote_or_evidence": "3 consecutive P1 tickets in the last 30 days",
+            "ticket_id": null
+          },
+          {
+            "risk_title": "Account escalation note",
+            "severity": "Medium",
+            "signal_source": "escalation_note",
+            "quote_or_evidence": "Decision maker considering competing vendor evaluation",
+            "ticket_id": null
+          }
+        ],
+        "recommended_talking_points": [
+          "Review renewal timing against the account's technical priorities (89 days from the dataset reference date).",
+          "Discuss the drivers behind the inactive usage trend and agree on measurable adoption-recovery actions.",
+          "Review current seat utilization of 91.8% and identify capacity or adoption opportunities.",
+          "Close the loop on the stakeholder concerns in the account escalation notes and agree on owners for next actions."
+        ],
+        "metrics_snapshot": {
+          "reference_date": "2026-05-22T00:23:32.203871+00:00",
+          "ticket_history_days": 90,
+          "total_tickets_90d": 10,
+          "p1_tickets_90d": 0,
+          "p2_tickets_90d": 2,
+          "seat_utilization_pct": 91.8,
+          "days_until_renewal": 89,
+          "arr_usd": 500000,
+          "seats_licensed": 1845,
+          "seats_active": 1693
+        },
+        "data_quality_warnings": [
+          "ACCOUNT_COMPANY_MISMATCH:TKT-10293",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10073",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10191",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10213",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10241",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10393",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10398",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10455",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10466",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10488"
+        ]
+      },
+      "latency_ms": 3.221
+    },
+    {
+      "test_id": "T2-2",
+      "task": "task_2_account_health",
+      "name": "Representative Healthy account",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "account_id": "ACC-3033",
+        "company": "Polaris Group",
+        "tam_name": "Yuki Tanaka",
+        "plan_tier": "Starter",
+        "arr_usd": 120000,
+        "health_status": "Healthy",
+        "usage_trend": "Increasing",
+        "executive_summary": "Polaris Group is on the Starter plan with $120,000 ARR. The account health is Healthy and the usage trend is increasing. The selected 90-day window contains 17 support tickets, including 0 P1 and 5 P2 incidents. The usage trajectory creates an opportunity for broader adoption.",
+        "open_risks_and_flags": [],
+        "recommended_talking_points": [
+          "Review renewal timing against the account's technical priorities (39 days from the dataset reference date).",
+          "Discuss opportunities for broader adoption across users, workflows, products, or integrations.",
+          "Review current seat utilization of 88.2% and identify capacity or adoption opportunities."
+        ],
+        "metrics_snapshot": {
+          "reference_date": "2026-05-22T00:23:32.203871+00:00",
+          "ticket_history_days": 90,
+          "total_tickets_90d": 17,
+          "p1_tickets_90d": 0,
+          "p2_tickets_90d": 5,
+          "seat_utilization_pct": 88.2,
+          "days_until_renewal": 39,
+          "arr_usd": 120000,
+          "seats_licensed": 1049,
+          "seats_active": 925
+        },
+        "data_quality_warnings": [
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10059",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10099",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10107",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10145",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10183",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10209",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10214",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10223",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10253",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10284",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10314",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10392",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10437",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10439",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10459",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10461",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10474"
+        ]
+      },
+      "latency_ms": 2.239
+    },
+    {
+      "test_id": "T2-3",
+      "task": "task_2_account_health",
+      "name": "Representative New account",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "account_id": "ACC-7893",
+        "company": "Solaris Data",
+        "tam_name": "Yuki Tanaka",
+        "plan_tier": "Enterprise",
+        "arr_usd": 24000,
+        "health_status": "New",
+        "usage_trend": "Increasing",
+        "executive_summary": "Solaris Data is on the Enterprise plan with $24,000 ARR. The account health is New and the usage trend is increasing. The selected 90-day window contains 11 support tickets, including 1 P1 and 0 P2 incidents. The usage trajectory creates an opportunity for broader adoption.",
+        "open_risks_and_flags": [],
+        "recommended_talking_points": [
+          "Review renewal timing against the account's technical priorities (217 days from the dataset reference date).",
+          "Discuss opportunities for broader adoption across users, workflows, products, or integrations.",
+          "Review the 1 P1 incident(s), ownership, root-cause actions, and prevention plan.",
+          "Review current seat utilization of 57.6% and identify capacity or adoption opportunities."
+        ],
+        "metrics_snapshot": {
+          "reference_date": "2026-05-22T00:23:32.203871+00:00",
+          "ticket_history_days": 90,
+          "total_tickets_90d": 11,
+          "p1_tickets_90d": 1,
+          "p2_tickets_90d": 0,
+          "seat_utilization_pct": 57.6,
+          "days_until_renewal": 217,
+          "arr_usd": 24000,
+          "seats_licensed": 1314,
+          "seats_active": 757
+        },
+        "data_quality_warnings": [
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10010",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10061",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10195",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10215",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10225",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10272",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10283",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10382",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10416",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10421",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10476"
+        ]
+      },
+      "latency_ms": 2.215
+    },
+    {
+      "test_id": "T2-4",
+      "task": "task_2_account_health",
+      "name": "Representative Churning account",
+      "is_adversarial": false,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "account_id": "ACC-2944",
+        "company": "Pinnacle Systems",
+        "tam_name": "Olivia Grant",
+        "plan_tier": "Starter",
+        "arr_usd": 48000,
+        "health_status": "Churning",
+        "usage_trend": "Declining",
+        "executive_summary": "Pinnacle Systems is on the Starter plan with $48,000 ARR. The account health is Churning and the usage trend is declining. The selected 90-day window contains 6 support tickets, including 0 P1 and 1 P2 incidents. The usage trajectory supports a proactive adoption review.",
+        "open_risks_and_flags": [
+          {
+            "risk_title": "Account escalation note",
+            "severity": "Medium",
+            "signal_source": "escalation_note",
+            "quote_or_evidence": "Champion left the company — no replacement identified yet",
+            "ticket_id": null
+          },
+          {
+            "risk_title": "Account escalation note",
+            "severity": "Medium",
+            "signal_source": "escalation_note",
+            "quote_or_evidence": "Customer expressed frustration with response times in last sync",
+            "ticket_id": null
+          },
+          {
+            "risk_title": "Account escalation note",
+            "severity": "Medium",
+            "signal_source": "escalation_note",
+            "quote_or_evidence": "Decision maker considering competing vendor evaluation",
+            "ticket_id": null
+          }
+        ],
+        "recommended_talking_points": [
+          "Review renewal timing against the account's technical priorities (33 days from the dataset reference date).",
+          "Discuss the drivers behind the declining usage trend and agree on measurable adoption-recovery actions.",
+          "Review current seat utilization of 87.8% and identify capacity or adoption opportunities.",
+          "Close the loop on the stakeholder concerns in the account escalation notes and agree on owners for next actions."
+        ],
+        "metrics_snapshot": {
+          "reference_date": "2026-05-22T00:23:32.203871+00:00",
+          "ticket_history_days": 90,
+          "total_tickets_90d": 6,
+          "p1_tickets_90d": 0,
+          "p2_tickets_90d": 1,
+          "seat_utilization_pct": 87.8,
+          "days_until_renewal": 33,
+          "arr_usd": 48000,
+          "seats_licensed": 329,
+          "seats_active": 289
+        },
+        "data_quality_warnings": [
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10040",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10112",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10120",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10338",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10472",
+          "SYNTHETIC_ID_DISCREPANCY:TKT-10480"
+        ]
+      },
+      "latency_ms": 2.98
+    },
+    {
+      "test_id": "T2-ADV-UNKNOWN",
+      "task": "task_2_account_health",
+      "name": "Unknown account ID",
+      "is_adversarial": true,
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
+      "actual_output": {
+        "error": "ACCOUNT_NOT_FOUND"
+      },
+      "latency_ms": 0.023
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "active": {
+    "triage": "v1.0.0",
+    "account_health": "v1.0.0"
+  },
+  "versions": {
+    "triage": {
+      "v1.0.0": {
+        "file": "triage_v1.0.0.txt",
+        "status": "active",
+        "changelog": "Initial security-aware triage prompt."
+      }
+    },
+    "account_health": {
+      "v1.0.0": {
+        "file": "account_health_v1.0.0.txt",
+        "status": "active",
+        "changelog": "Initial account-health prompt."
+      }
+    }
+  }
+}
