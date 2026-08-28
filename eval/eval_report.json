@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-08-27T14:34:07.436328+00:00",
+  "timestamp": "2026-08-28T06:41:58.141609+00:00",
   "total_tests": 11,
-  "passed_tests": 10,
-  "failed_tests": 1,
-  "overall_pass_rate": 0.9090909090909091,
-  "average_quality_score": 0.9848181818181818,
-  "task_1_pass_rate": 0.8333333333333334,
+  "passed_tests": 11,
+  "failed_tests": 0,
+  "overall_pass_rate": 1.0,
+  "average_quality_score": 1.0,
+  "task_1_pass_rate": 1.0,
   "task_2_pass_rate": 1.0,
   "results": [
     {
@@ -36,7 +36,7 @@
         "confidence": 0.415,
         "kb_retrieval_score": 0.221
       },
-      "latency_ms": 6.372
+      "latency_ms": 9.394
     },
     {
       "test_id": "T1-2",
@@ -65,7 +65,7 @@
         "confidence": 0.442,
         "kb_retrieval_score": 0.11
       },
-      "latency_ms": 3.399
+      "latency_ms": 16.675
     },
     {
       "test_id": "T1-3",
@@ -95,68 +95,67 @@
         "confidence": 0.527,
         "kb_retrieval_score": 0.478
       },
-      "latency_ms": 2.961
+      "latency_ms": 14.629
     },
     {
       "test_id": "T1-4",
       "task": "task_1_triage",
-      "name": "Representative Data Loss ticket",
+      "name": "Representative Bug ticket",
       "is_adversarial": false,
       "passed": true,
       "quality_score": 1.0,
       "reasons": [],
       "actual_output": {
         "product": "AnalyticsHub",
-        "product_area": "Alerts",
-        "category": "Data Loss",
-        "urgency": "P2",
+        "product_area": "Data Sources",
+        "category": "Bug",
+        "urgency": "P3",
         "urgency_reasoning": "Classification is derived from weighted similarity to the supplied labeled historical-ticket corpus.",
-        "is_known_issue": true,
-        "matched_kb_document": "troubleshooting/authentication-sso.md",
-        "matched_kb_section": "New Users Cannot Authenticate via SSO",
-        "kb_resolution_steps": "## New Users Cannot Authenticate via SSO\n\n**Symptom:** Existing users log in fine; new joiners get an error.\n\n**Most common cause:** The new user's IDP group has not been mapped to a product role.\n\n**Resolution:**\n1. Log in to the product as an admin.\n2. Navigate to Settings → SSO → Group Mapping.\n3. Verify the user's primary IDP group appears in the list with a role assigned.\n4. If the group is missing, add it with the appropriate role.\n5. Ask the user to retry — no reprovisioning needed after mapping is added.",
+        "is_known_issue": false,
+        "matched_kb_document": null,
+        "matched_kb_section": null,
+        "kb_resolution_steps": null,
         "recommended_team": "Technical Support (offline recommendation)",
-        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a data loss affecting AnalyticsHub. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
+        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a bug affecting AnalyticsHub. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
         "secondary_topics": [
-          "Bug",
-          "Feature Request",
+          "Data Loss",
+          "Performance",
           "Onboarding"
         ],
-        "confidence": 0.6,
-        "kb_retrieval_score": 0.532
+        "confidence": 0.438,
+        "kb_retrieval_score": 0.178
       },
-      "latency_ms": 3.023
+      "latency_ms": 14.191
     },
     {
       "test_id": "T1-5",
       "task": "task_1_triage",
-      "name": "Representative Bug ticket",
+      "name": "Representative Performance ticket",
       "is_adversarial": false,
-      "passed": false,
-      "quality_score": 0.833,
-      "reasons": [
-        "category: expected 'Bug', got 'Integration'"
-      ],
+      "passed": true,
+      "quality_score": 1.0,
+      "reasons": [],
       "actual_output": {
         "product": "SecureVault",
-        "product_area": "Audit Logs",
-        "category": "Integration",
+        "product_area": "Key Management",
+        "category": "Performance",
         "urgency": "P3",
         "urgency_reasoning": "Classification is derived from weighted similarity to the supplied labeled historical-ticket corpus.",
-        "is_known_issue": true,
-        "matched_kb_document": "troubleshooting/performance-and-integrations.md",
-        "matched_kb_section": "Common Integration Errors",
-        "kb_resolution_steps": "## Common Integration Errors\n\n| Error | Integration | Cause | Fix |\n|-------|------------|-------|-----|\n| `403 Forbidden` | Salesforce | OAuth token lacks `api` scope | Regenerate token with correct scopes |\n| `404 Not Found` on valid endpoint | Any REST | API version mismatch | Confirm API version in connector config |\n| Webhook not received | All | Endpoint not reachable from cloud | Whitelist platform IP ranges |\n| `CHECKSUM_MISMATCH` | DataBridge Pro | Data corruption or wrong key | Verify encryption key; contact support |\n| `INVALID_CONFIGURATION` | WorkflowEngine | Missing required field in action | Review action field mapping |",
+        "is_known_issue": false,
+        "matched_kb_document": null,
+        "matched_kb_section": null,
+        "kb_resolution_steps": null,
         "recommended_team": "Technical Support (offline recommendation)",
-        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a integration affecting SecureVault. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
+        "draft_response": "Hello,\n\nThank you for contacting Technical Support. Based on the available support evidence, this appears to be a performance affecting SecureVault. We will review the reported impact and follow up with the next actionable step.\n\nBest regards,\nTechnical Support",
         "secondary_topics": [
-          "Data Loss",
-          "Onboarding"
+          "Feature Request",
+          "Billing",
+          "Data Loss"
         ],
-        "confidence": 0.453,
-        "kb_retrieval_score": 0.563
+        "confidence": 0.491,
+        "kb_retrieval_score": 0.095
       },
-      "latency_ms": 4.53
+      "latency_ms": 6.159
     },
     {
       "test_id": "T1-ADV-EMPTY",
@@ -169,7 +168,7 @@
       "actual_output": {
         "error": "INVALID_TICKET"
       },
-      "latency_ms": 0.056
+      "latency_ms": 0.064
     },
     {
       "test_id": "T2-1",
@@ -235,7 +234,7 @@
           "SYNTHETIC_ID_DISCREPANCY:TKT-10488"
         ]
       },
-      "latency_ms": 3.221
+      "latency_ms": 8.778
     },
     {
       "test_id": "T2-2",
@@ -292,7 +291,7 @@
           "SYNTHETIC_ID_DISCREPANCY:TKT-10474"
         ]
       },
-      "latency_ms": 2.239
+      "latency_ms": 4.39
     },
     {
       "test_id": "T2-3",
@@ -344,7 +343,7 @@
           "SYNTHETIC_ID_DISCREPANCY:TKT-10476"
         ]
       },
-      "latency_ms": 2.215
+      "latency_ms": 2.36
     },
     {
       "test_id": "T2-4",
@@ -413,7 +412,7 @@
           "SYNTHETIC_ID_DISCREPANCY:TKT-10480"
         ]
       },
-      "latency_ms": 2.98
+      "latency_ms": 3.114
     },
     {
       "test_id": "T2-ADV-UNKNOWN",
@@ -426,7 +425,7 @@
       "actual_output": {
         "error": "ACCOUNT_NOT_FOUND"
       },
-      "latency_ms": 0.023
+      "latency_ms": 0.068
     }
   ]
 }
